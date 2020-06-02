@@ -8,9 +8,9 @@ flake8==3.8.2
 gunicorn==20.0.4
 isort==4.3.21
 lazy-object-proxy==1.4.3
-mccabe==0.6.1
-mypy==0.770
-mypy-extensions==0.4.3
+mccabe
+mypy
+mypy-extensions
 pkg-resources==0.0.0
 psycopg2==2.8.5
 pycodestyle==2.6.0
