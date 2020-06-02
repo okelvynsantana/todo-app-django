@@ -7,7 +7,7 @@ from app.services import task_service
 
 
 def home(request):
-    return redirect(request, 'index_tasks')
+    return redirect('index_tasks')
 
 
 @login_required()
