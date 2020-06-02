@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load my_filters %}
+
+{% block content %}
+<h1 class="d-flex justify-content-center" style="margin-top: 30px; font-weight: bold">Login</h1>
+<div class="d-flex justify-content-center">
+  <form method="POST" style="margin-top: 20px;">
+    {% csrf_token %}
+    {% for message in messages %}
+      <div class="alert alert-danger">
+        {{ message }}
+      </div>
+    {% endfor %}
+    <div class="form-group">
+      <label>Username: </label>
+      {{ login_form.username|addclass:'form-control' }}
+    </div>
+    <div class="form-group">
+      <label>Sua senha secreta: </label>
+      {{ login_form.password|addclass:'form-control' }}
+    </div>
+    <div class="form-group d-flex justify-content-center">
+      <input type="submit" value="Entrar" class="btn btn-success align-self-xl-stretch">
+    </div>
+  
+    <div class="form-group">
+      <a href="{% url 'create_account' %}" class="d-flex justify-content-center"><strong>Ainda não tenho uma conta.</strong></a>
+    </div>
+  </form>
+</div>
+{% endblock content %}

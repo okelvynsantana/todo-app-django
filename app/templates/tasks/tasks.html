@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex align-items-start flex-column bd-highlight mb-3">
+  <div class="p-2 bd-highlight" >
+    <h1 class="align-middle">Minhas tarefas</h1>
+  </div>
+
+</div>
+{% for task in tasks %}
+
+<div class="card mb-3" >
+  <div class="card-body p-2 bd-highlight">
+    <div class="card-header ">
+      <span class="badge badge-pill badge-danger">
+        {{ task.get_priority_display }}
+      </span>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ task.title }}</h5>
+      <p class="card-text">{{ task.description }}</p>
+      <hr>
+      <a class="btn btn-primary mr-sm-2" href="{% url 'update_task' task.id %}">Editar tarefa</a>
+      <a class="btn btn-danger mr-sm-2" href="{% url 'delete_task' task.id %}">Apagar tarefa</a>
+
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+
+{% endblock content %}

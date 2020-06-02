@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load my_filters %}
+{% block content %}
+<h2 class="d-flex justify-content-center" style="margin-top: 30px; font-weight: bold;">Cadastre-se</h2>
+<div class="d-flex justify-content-center" style="margin-top: 30px;"">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group ">
+            {{ user_form.username.errors }}
+            <label>Qual será seu username? </label>
+            {{ user_form.username|addclass:'form-control' }}
+        </div>
+        <div class="form-group">
+            {{ user_form.password1.errors }}
+            <label>Sua senha secreta: </label>
+            {{ user_form.password1|addclass:'form-control' }}
+        </div>
+        <div class="form-group">
+            {{ user_form.password2.errors }}
+            <label>Confirme sua senha: </label>
+            {{ user_form.password2|addclass:'form-control' }}
+        </div>
+        <div class="form-group d-flex justify-content-center">
+            <input type="submit" value="Criar conta" class="btn btn-success">
+        </div>
+        <div class="form-group">
+            <a href="{% url 'user_login' %}" class="d-flex justify-content-center"><strong>Já tenho conta.</strong></a>
+        </div>
+    </form>
+      
+</div>
+{% endblock content %}
